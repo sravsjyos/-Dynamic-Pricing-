@@ -1,6 +1,4 @@
-matplotlib.pyplot
 streamlit
-random
-numpy
+matplotlib
 gym
-sickit-learn
+numpy
