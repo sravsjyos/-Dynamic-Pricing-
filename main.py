@@ -39,7 +39,7 @@ class PricingEnv(gym.Env):
         return max(base_demand - 3 * price + fluctuation, 0)
 
 # Streamlit app
-st.title("📈 Dynamic Pricing with Q-Learning")
+st.title(" Dynamic Pricing with Q-Learning")
 
 # Training settings
 episodes = st.slider("Training Episodes", 1000, 10000, 5000, step=1000)
@@ -74,7 +74,7 @@ with st.spinner("Training in progress..."):
         rewards.append(total_reward)
 
 # Show results
-st.subheader("📊 Training Performance")
+st.subheader("Training Performance")
 fig, ax = plt.subplots()
 ax.plot(rewards)
 ax.set_xlabel("Episode")
@@ -83,11 +83,11 @@ ax.set_title("Q-learning Training Performance")
 ax.grid(True)
 st.pyplot(fig)
 
-st.subheader("📘 Q-Table")
+st.subheader(" Q-Table")
 st.dataframe(q_table)
 
-st.subheader("📌 Recommended Pricing Actions")
+st.subheader(" Recommended Pricing Actions")
 action_map = ["Lower", "Stay", "Raise"]
 for s, price in enumerate(env.price_levels):
     action = np.argmax(q_table[s])
-    st.write(f"💰 Price ₹{price} → **{action_map[action]}**")
+    st.write(f" Price ₹{price} → **{action_map[action]}**")
